@@ -1,0 +1,95 @@
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX twitter: <http://www.socialnetwork.edu/twitter#>
+SELECT ?users 
+WHERE {
+	?person twitter:username ?name.
+	?person twitter:followed_by ?users. 
+	FILTER(?name = "visarbuza"^^xsd:string)
+}
+-------------------------------------------------------------------
+
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX twitter: <http://www.socialnetwork.edu/twitter#>
+SELECT ?users 
+WHERE {
+	?person twitter:username ?name.
+	?person twitter:followed ?users. 
+	FILTER(?name = "visarbuza"^^xsd:string)
+}
+-------------------------------------------------------------------
+
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX twitter: <http://www.socialnetwork.edu/twitter#>
+SELECT ?posts
+WHERE {
+	?person twitter:username ?name.
+	?person twitter:liked ?posts
+	FILTER(?name = "visarbuza"^^xsd:string)
+}
+-------------------------------------------------------------------
+
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX twitter: <http://www.socialnetwork.edu/twitter#>
+SELECT ?posts
+WHERE {
+	?person twitter:username ?name.
+	?person twitter:commented ?posts
+	FILTER(?name = "visarbuza"^^xsd:string)
+}
+-------------------------------------------------------------------
+
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX twitter: <http://www.socialnetwork.edu/twitter#>
+SELECT ?username (COUNT(*) as ?total)
+WHERE {
+	?person twitter:followed_by ?users.
+	?person twitter:username ?username.
+}
+GROUP BY ?username
+ORDER BY DESC(?total)
+-------------------------------------------------------------------
+
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX twitter: <http://www.socialnetwork.edu/twitter#>
+SELECT ?username (COUNT(*) as ?total)
+WHERE {
+	?person twitter:followed ?users.
+	?person twitter:username ?username.
+}
+GROUP BY ?username
+ORDER BY DESC(?total)
+-------------------------------------------------------------------
+
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX twitter: <http://www.socialnetwork.edu/twitter#>
+SELECT ?username
+WHERE {
+	?person twitter:username ?username.
+              OPTIONAL {
+	?person twitter:followed_by ?users.
+              }
+              FILTER(!BOUND(?users))
+}
+
+--------------------------------------------------------------------

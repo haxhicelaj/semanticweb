@@ -1,0 +1,1253 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.www.socialnetwork.edu/instagram#"
+     xml:base="http://www.www.socialnetwork.edu/instagram"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+     xmlns:swrla="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#"
+     xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+     xmlns:instagram="http://www.socialnetwork.edu/instagram#">
+    <owl:Ontology rdf:about="http://www.socialnetwork.edu/instagram"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled -->
+
+    <owl:AnnotationProperty rdf:about="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.socialnetwork.edu/instagram#added_to -->
+
+    <owl:ObjectProperty rdf:about="http://www.socialnetwork.edu/instagram#added_to">
+        <rdfs:domain rdf:resource="http://www.socialnetwork.edu/instagram#Post"/>
+        <rdfs:range rdf:resource="http://www.socialnetwork.edu/instagram#Collection"/>
+        <rdfs:comment xml:lang="en">Post added to collection.</rdfs:comment>
+        <rdfs:label xml:lang="en">added_to</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.socialnetwork.edu/instagram#belongs_to -->
+
+    <owl:ObjectProperty rdf:about="http://www.socialnetwork.edu/instagram#belongs_to">
+        <rdfs:comment xml:lang="en">Describes the nature of the relations.</rdfs:comment>
+        <rdfs:label xml:lang="en">belongs_to</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.socialnetwork.edu/instagram#blocked -->
+
+    <owl:ObjectProperty rdf:about="http://www.socialnetwork.edu/instagram#blocked">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <rdfs:domain rdf:resource="http://www.socialnetwork.edu/instagram#InstagramAccount"/>
+        <rdfs:range rdf:resource="http://www.socialnetwork.edu/instagram#InstagramAccount"/>
+        <rdfs:comment xml:lang="en">Used to block user.</rdfs:comment>
+        <rdfs:label xml:lang="en">blocked</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.socialnetwork.edu/instagram#commented -->
+
+    <owl:ObjectProperty rdf:about="http://www.socialnetwork.edu/instagram#commented">
+        <owl:inverseOf rdf:resource="http://www.socialnetwork.edu/instagram#commented_by"/>
+        <rdfs:domain rdf:resource="http://www.socialnetwork.edu/instagram#InstagramAccount"/>
+        <rdfs:range rdf:resource="http://www.socialnetwork.edu/instagram#Post"/>
+        <rdfs:comment xml:lang="en">User comments on post.</rdfs:comment>
+        <rdfs:label xml:lang="en">commented</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.socialnetwork.edu/instagram#commented_by -->
+
+    <owl:ObjectProperty rdf:about="http://www.socialnetwork.edu/instagram#commented_by">
+        <rdfs:domain rdf:resource="http://www.socialnetwork.edu/instagram#Post"/>
+        <rdfs:range rdf:resource="http://www.socialnetwork.edu/instagram#InstagramAccount"/>
+        <rdfs:comment xml:lang="en">Post commented by user.</rdfs:comment>
+        <rdfs:label xml:lang="en">commented_by</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.socialnetwork.edu/instagram#created -->
+
+    <owl:ObjectProperty rdf:about="http://www.socialnetwork.edu/instagram#created">
+        <owl:inverseOf rdf:resource="http://www.socialnetwork.edu/instagram#created_by"/>
+        <rdfs:domain rdf:resource="http://www.socialnetwork.edu/instagram#InstagramAccount"/>
+        <rdfs:comment xml:lang="en">User creates post.</rdfs:comment>
+        <rdfs:label xml:lang="en">created</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.socialnetwork.edu/instagram#created_by -->
+
+    <owl:ObjectProperty rdf:about="http://www.socialnetwork.edu/instagram#created_by">
+        <rdfs:range rdf:resource="http://www.socialnetwork.edu/instagram#InstagramAccount"/>
+        <rdfs:comment xml:lang="en">Post created by user.</rdfs:comment>
+        <rdfs:label xml:lang="en">created_by</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.socialnetwork.edu/instagram#followed -->
+
+    <owl:ObjectProperty rdf:about="http://www.socialnetwork.edu/instagram#followed">
+        <owl:inverseOf rdf:resource="http://www.socialnetwork.edu/instagram#followed_by"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <rdfs:domain rdf:resource="http://www.socialnetwork.edu/instagram#InstagramAccount"/>
+        <rdfs:range rdf:resource="http://www.socialnetwork.edu/instagram#InstagramAccount"/>
+        <rdfs:comment xml:lang="en">User follows user.</rdfs:comment>
+        <rdfs:label xml:lang="en">followed</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.socialnetwork.edu/instagram#followed_by -->
+
+    <owl:ObjectProperty rdf:about="http://www.socialnetwork.edu/instagram#followed_by">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <rdfs:domain rdf:resource="http://www.socialnetwork.edu/instagram#InstagramAccount"/>
+        <rdfs:range rdf:resource="http://www.socialnetwork.edu/instagram#InstagramAccount"/>
+        <rdfs:comment xml:lang="en">User followed by user.</rdfs:comment>
+        <rdfs:label xml:lang="en">followed_by</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.socialnetwork.edu/instagram#has -->
+
+    <owl:ObjectProperty rdf:about="http://www.socialnetwork.edu/instagram#has">
+        <rdfs:comment xml:lang="en">Describes the nature of the relations.</rdfs:comment>
+        <rdfs:label xml:lang="en">has</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.socialnetwork.edu/instagram#liked -->
+
+    <owl:ObjectProperty rdf:about="http://www.socialnetwork.edu/instagram#liked">
+        <owl:inverseOf rdf:resource="http://www.socialnetwork.edu/instagram#liked_by"/>
+        <rdfs:domain rdf:resource="http://www.socialnetwork.edu/instagram#InstagramAccount"/>
+        <rdfs:range rdf:resource="http://www.socialnetwork.edu/instagram#Post"/>
+        <rdfs:comment xml:lang="en">User likes post.</rdfs:comment>
+        <rdfs:label xml:lang="en">liked</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.socialnetwork.edu/instagram#liked_by -->
+
+    <owl:ObjectProperty rdf:about="http://www.socialnetwork.edu/instagram#liked_by">
+        <rdfs:domain rdf:resource="http://www.socialnetwork.edu/instagram#Post"/>
+        <rdfs:range rdf:resource="http://www.socialnetwork.edu/instagram#InstagramAccount"/>
+        <rdfs:comment xml:lang="en">Post liked by user.</rdfs:comment>
+        <rdfs:label xml:lang="en">liked_by</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.socialnetwork.edu/instagram#received -->
+
+    <owl:ObjectProperty rdf:about="http://www.socialnetwork.edu/instagram#received">
+        <rdfs:domain rdf:resource="http://www.socialnetwork.edu/instagram#InstagramAccount"/>
+        <rdfs:comment xml:lang="en">User receives message/notification.</rdfs:comment>
+        <rdfs:label xml:lang="en">received</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.socialnetwork.edu/instagram#sent -->
+
+    <owl:ObjectProperty rdf:about="http://www.socialnetwork.edu/instagram#sent">
+        <rdfs:domain rdf:resource="http://www.socialnetwork.edu/instagram#InstagramAccount"/>
+        <rdfs:range rdf:resource="http://www.socialnetwork.edu/instagram#Message"/>
+        <rdfs:comment xml:lang="en">User send message.</rdfs:comment>
+        <rdfs:label xml:lang="en">sent</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.socialnetwork.edu/instagram#tagged -->
+
+    <owl:ObjectProperty rdf:about="http://www.socialnetwork.edu/instagram#tagged">
+        <rdfs:domain rdf:resource="http://www.socialnetwork.edu/instagram#InstagramAccount"/>
+        <rdfs:range rdf:resource="http://www.socialnetwork.edu/instagram#InstagramAccount"/>
+        <rdfs:comment xml:lang="en">User tag a user.</rdfs:comment>
+        <rdfs:label xml:lang="en">tagged</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.socialnetwork.edu/instagram#tagged_in -->
+
+    <owl:ObjectProperty rdf:about="http://www.socialnetwork.edu/instagram#tagged_in">
+        <rdfs:domain rdf:resource="http://www.socialnetwork.edu/instagram#InstagramAccount"/>
+        <rdfs:range rdf:resource="http://www.socialnetwork.edu/instagram#Post"/>
+        <rdfs:comment xml:lang="en">User tagged in post.</rdfs:comment>
+        <rdfs:label xml:lang="en">tagged_in</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.socialnetwork.edu/instagram#birth_date -->
+
+    <owl:DatatypeProperty rdf:about="http://www.socialnetwork.edu/instagram#birth_date">
+        <rdfs:domain rdf:resource="http://www.socialnetwork.edu/instagram#UserAccount"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+        <rdfs:comment xml:lang="en">User&apos;s birth date.</rdfs:comment>
+        <rdfs:label xml:lang="en">birth_date</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.socialnetwork.edu/instagram#comment -->
+
+    <owl:DatatypeProperty rdf:about="http://www.socialnetwork.edu/instagram#comment">
+        <rdfs:domain rdf:resource="http://www.socialnetwork.edu/instagram#Comment"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="en">Comment of the user on post.</rdfs:comment>
+        <rdfs:label xml:lang="en">comment</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.socialnetwork.edu/instagram#created_at -->
+
+    <owl:DatatypeProperty rdf:about="http://www.socialnetwork.edu/instagram#created_at">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+        <rdfs:comment xml:lang="en">Creation date of User/Post/Message/Notification/Comment.</rdfs:comment>
+        <rdfs:label xml:lang="en">created_at</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.socialnetwork.edu/instagram#email -->
+
+    <owl:DatatypeProperty rdf:about="http://www.socialnetwork.edu/instagram#email">
+        <rdfs:domain rdf:resource="http://www.socialnetwork.edu/instagram#InstagramAccount"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="en">User&apos;s email address</rdfs:comment>
+        <rdfs:label xml:lang="en">email</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.socialnetwork.edu/instagram#first_name -->
+
+    <owl:DatatypeProperty rdf:about="http://www.socialnetwork.edu/instagram#first_name">
+        <rdfs:domain rdf:resource="http://www.socialnetwork.edu/instagram#UserAccount"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="en">User&apos;s first name.</rdfs:comment>
+        <rdfs:label xml:lang="en">first_name</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.socialnetwork.edu/instagram#last_name -->
+
+    <owl:DatatypeProperty rdf:about="http://www.socialnetwork.edu/instagram#last_name">
+        <rdfs:domain rdf:resource="http://www.socialnetwork.edu/instagram#UserAccount"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="en">User&apos;s last name.</rdfs:comment>
+        <rdfs:label xml:lang="en">last_name</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.socialnetwork.edu/instagram#media -->
+
+    <owl:DatatypeProperty rdf:about="http://www.socialnetwork.edu/instagram#media">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="en">Image/video of the post.</rdfs:comment>
+        <rdfs:label xml:lang="en">media</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.socialnetwork.edu/instagram#message -->
+
+    <owl:DatatypeProperty rdf:about="http://www.socialnetwork.edu/instagram#message">
+        <rdfs:domain rdf:resource="http://www.socialnetwork.edu/instagram#Message"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="en">Message content.</rdfs:comment>
+        <rdfs:label xml:lang="en">message</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.socialnetwork.edu/instagram#notification -->
+
+    <owl:DatatypeProperty rdf:about="http://www.socialnetwork.edu/instagram#notification">
+        <rdfs:domain rdf:resource="http://www.socialnetwork.edu/instagram#Notification"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="en">Content of notification.</rdfs:comment>
+        <rdfs:label xml:lang="en">notification</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.socialnetwork.edu/instagram#profile_image -->
+
+    <owl:DatatypeProperty rdf:about="http://www.socialnetwork.edu/instagram#profile_image">
+        <rdfs:domain rdf:resource="http://www.socialnetwork.edu/instagram#InstagramAccount"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="en">User&apos;s profile image.</rdfs:comment>
+        <rdfs:label xml:lang="en">profile_image</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.socialnetwork.edu/instagram#user_id -->
+
+    <owl:DatatypeProperty rdf:about="http://www.socialnetwork.edu/instagram#user_id">
+        <rdfs:domain rdf:resource="http://www.socialnetwork.edu/instagram#InstagramAccount"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+        <rdfs:comment xml:lang="en">Id of the user.</rdfs:comment>
+        <rdfs:label xml:lang="en">user_id</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.socialnetwork.edu/instagram#username -->
+
+    <owl:DatatypeProperty rdf:about="http://www.socialnetwork.edu/instagram#username">
+        <rdfs:domain rdf:resource="http://www.socialnetwork.edu/instagram#InstagramAccount"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="en">User&apos;s username.</rdfs:comment>
+        <rdfs:label xml:lang="en">username</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.socialnetwork.edu/instagram#Collection -->
+
+    <owl:Class rdf:about="http://www.socialnetwork.edu/instagram#Collection">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.socialnetwork.edu/instagram#has"/>
+                <owl:someValuesFrom rdf:resource="http://www.socialnetwork.edu/instagram#Post"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.socialnetwork.edu/instagram#belongs_to"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.socialnetwork.edu/instagram#InstagramAccount"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.socialnetwork.edu/instagram#Comment -->
+
+    <owl:Class rdf:about="http://www.socialnetwork.edu/instagram#Comment">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.socialnetwork.edu/instagram#belongs_to"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.socialnetwork.edu/instagram#InstagramAccount"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label xml:lang="en">Comment</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.socialnetwork.edu/instagram#InstagramAccount -->
+
+    <owl:Class rdf:about="http://www.socialnetwork.edu/instagram#InstagramAccount">
+        <rdfs:subClassOf rdf:resource="http://www.socialnetwork.edu/instagram#UserAccount"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.socialnetwork.edu/instagram#blocked"/>
+                <owl:someValuesFrom rdf:resource="http://www.socialnetwork.edu/instagram#InstagramAccount"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.socialnetwork.edu/instagram#commented"/>
+                <owl:someValuesFrom rdf:resource="http://www.socialnetwork.edu/instagram#Post"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.socialnetwork.edu/instagram#created"/>
+                <owl:someValuesFrom rdf:resource="http://www.socialnetwork.edu/instagram#Post"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.socialnetwork.edu/instagram#followed"/>
+                <owl:someValuesFrom rdf:resource="http://www.socialnetwork.edu/instagram#InstagramAccount"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.socialnetwork.edu/instagram#followed_by"/>
+                <owl:someValuesFrom rdf:resource="http://www.socialnetwork.edu/instagram#InstagramAccount"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.socialnetwork.edu/instagram#liked"/>
+                <owl:someValuesFrom rdf:resource="http://www.socialnetwork.edu/instagram#Post"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.socialnetwork.edu/instagram#received"/>
+                <owl:someValuesFrom rdf:resource="http://www.socialnetwork.edu/instagram#Message"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.socialnetwork.edu/instagram#received"/>
+                <owl:someValuesFrom rdf:resource="http://www.socialnetwork.edu/instagram#Notification"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.socialnetwork.edu/instagram#sent"/>
+                <owl:someValuesFrom rdf:resource="http://www.socialnetwork.edu/instagram#Message"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.socialnetwork.edu/instagram#tagged"/>
+                <owl:someValuesFrom rdf:resource="http://www.socialnetwork.edu/instagram#InstagramAccount"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.socialnetwork.edu/instagram#tagged_in"/>
+                <owl:someValuesFrom rdf:resource="http://www.socialnetwork.edu/instagram#Post"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label xml:lang="en">InstagramAccount</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.socialnetwork.edu/instagram#Message -->
+
+    <owl:Class rdf:about="http://www.socialnetwork.edu/instagram#Message">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.socialnetwork.edu/instagram#belongs_to"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.socialnetwork.edu/instagram#InstagramAccount"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label xml:lang="en">Message</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.socialnetwork.edu/instagram#Notification -->
+
+    <owl:Class rdf:about="http://www.socialnetwork.edu/instagram#Notification">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.socialnetwork.edu/instagram#belongs_to"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.socialnetwork.edu/instagram#InstagramAccount"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label xml:lang="en">Notification</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.socialnetwork.edu/instagram#Post -->
+
+    <owl:Class rdf:about="http://www.socialnetwork.edu/instagram#Post">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.socialnetwork.edu/instagram#commented_by"/>
+                <owl:someValuesFrom rdf:resource="http://www.socialnetwork.edu/instagram#InstagramAccount"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.socialnetwork.edu/instagram#liked_by"/>
+                <owl:someValuesFrom rdf:resource="http://www.socialnetwork.edu/instagram#InstagramAccount"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.socialnetwork.edu/instagram#added_to"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.socialnetwork.edu/instagram#Collection"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.socialnetwork.edu/instagram#created_by"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.socialnetwork.edu/instagram#InstagramAccount"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label xml:lang="en">Post</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.socialnetwork.edu/instagram#Story -->
+
+    <owl:Class rdf:about="http://www.socialnetwork.edu/instagram#Story">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.socialnetwork.edu/instagram#belongs_to"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.socialnetwork.edu/instagram#InstagramAccount"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label xml:lang="en">Story</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.socialnetwork.edu/instagram#UserAccount -->
+
+    <owl:Class rdf:about="http://www.socialnetwork.edu/instagram#UserAccount">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.socialnetwork.edu/instagram#email"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">5</owl:minQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.socialnetwork.edu/instagram#first_name"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">3</owl:minQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.socialnetwork.edu/instagram#last_name"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">3</owl:minQualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.socialnetwork.edu/instagram#created_at"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label xml:lang="en">UserAccount</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.socialnetwork.edu/instagram#Collection1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.socialnetwork.edu/instagram#Collection1">
+        <rdf:type rdf:resource="http://www.socialnetwork.edu/instagram#Collection"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.socialnetwork.edu/instagram#Collection2 -->
+
+    <owl:NamedIndividual rdf:about="http://www.socialnetwork.edu/instagram#Collection2">
+        <rdf:type rdf:resource="http://www.socialnetwork.edu/instagram#Collection"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.socialnetwork.edu/instagram#Collection3 -->
+
+    <owl:NamedIndividual rdf:about="http://www.socialnetwork.edu/instagram#Collection3">
+        <rdf:type rdf:resource="http://www.socialnetwork.edu/instagram#Collection"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.socialnetwork.edu/instagram#Comment1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.socialnetwork.edu/instagram#Comment1">
+        <rdf:type rdf:resource="http://www.socialnetwork.edu/instagram#Comment"/>
+        <instagram:belongs_to rdf:resource="http://www.socialnetwork.edu/instagram#User1"/>
+        <instagram:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Comment1</instagram:comment>
+        <instagram:created_at rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2022-05-12T16:00:00</instagram:created_at>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.socialnetwork.edu/instagram#Comment2 -->
+
+    <owl:NamedIndividual rdf:about="http://www.socialnetwork.edu/instagram#Comment2">
+        <rdf:type rdf:resource="http://www.socialnetwork.edu/instagram#Comment"/>
+        <instagram:belongs_to rdf:resource="http://www.socialnetwork.edu/instagram#User3"/>
+        <instagram:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Comment2</instagram:comment>
+        <instagram:created_at rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2022-05-18T19:00:00</instagram:created_at>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.socialnetwork.edu/instagram#Comment3 -->
+
+    <owl:NamedIndividual rdf:about="http://www.socialnetwork.edu/instagram#Comment3">
+        <rdf:type rdf:resource="http://www.socialnetwork.edu/instagram#Comment"/>
+        <instagram:belongs_to rdf:resource="http://www.socialnetwork.edu/instagram#User5"/>
+        <instagram:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Comment3</instagram:comment>
+        <instagram:created_at rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2022-05-19T12:00:00</instagram:created_at>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.socialnetwork.edu/instagram#Comment4 -->
+
+    <owl:NamedIndividual rdf:about="http://www.socialnetwork.edu/instagram#Comment4">
+        <rdf:type rdf:resource="http://www.socialnetwork.edu/instagram#Comment"/>
+        <instagram:belongs_to rdf:resource="http://www.socialnetwork.edu/instagram#User7"/>
+        <instagram:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Comment4</instagram:comment>
+        <instagram:created_at rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2022-05-22T10:00:00</instagram:created_at>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.socialnetwork.edu/instagram#Comment5 -->
+
+    <owl:NamedIndividual rdf:about="http://www.socialnetwork.edu/instagram#Comment5">
+        <rdf:type rdf:resource="http://www.socialnetwork.edu/instagram#Comment"/>
+        <instagram:belongs_to rdf:resource="http://www.socialnetwork.edu/instagram#User9"/>
+        <instagram:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Comment5</instagram:comment>
+        <instagram:created_at rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2022-05-27T16:00:00</instagram:created_at>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.socialnetwork.edu/instagram#Message1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.socialnetwork.edu/instagram#Message1">
+        <rdf:type rdf:resource="http://www.socialnetwork.edu/instagram#Message"/>
+        <instagram:belongs_to rdf:resource="http://www.socialnetwork.edu/instagram#User1"/>
+        <instagram:created_at rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2022-05-10T15:50:00</instagram:created_at>
+        <instagram:message rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Message1</instagram:message>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.socialnetwork.edu/instagram#Message2 -->
+
+    <owl:NamedIndividual rdf:about="http://www.socialnetwork.edu/instagram#Message2">
+        <rdf:type rdf:resource="http://www.socialnetwork.edu/instagram#Message"/>
+        <instagram:belongs_to rdf:resource="http://www.socialnetwork.edu/instagram#User2"/>
+        <instagram:created_at rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2022-05-18T14:00:00</instagram:created_at>
+        <instagram:message rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Message2</instagram:message>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.socialnetwork.edu/instagram#Message3 -->
+
+    <owl:NamedIndividual rdf:about="http://www.socialnetwork.edu/instagram#Message3">
+        <rdf:type rdf:resource="http://www.socialnetwork.edu/instagram#Message"/>
+        <instagram:belongs_to rdf:resource="http://www.socialnetwork.edu/instagram#User6"/>
+        <instagram:created_at rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2022-05-25T10:00:00</instagram:created_at>
+        <instagram:message rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Message3</instagram:message>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.socialnetwork.edu/instagram#Message4 -->
+
+    <owl:NamedIndividual rdf:about="http://www.socialnetwork.edu/instagram#Message4">
+        <rdf:type rdf:resource="http://www.socialnetwork.edu/instagram#Message"/>
+        <instagram:belongs_to rdf:resource="http://www.socialnetwork.edu/instagram#User7"/>
+        <instagram:created_at rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2022-05-30T15:50:00</instagram:created_at>
+        <instagram:message rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Message4</instagram:message>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.socialnetwork.edu/instagram#Message5 -->
+
+    <owl:NamedIndividual rdf:about="http://www.socialnetwork.edu/instagram#Message5">
+        <rdf:type rdf:resource="http://www.socialnetwork.edu/instagram#Message"/>
+        <instagram:belongs_to rdf:resource="http://www.socialnetwork.edu/instagram#User8"/>
+        <instagram:created_at rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2022-06-10T12:00:00</instagram:created_at>
+        <instagram:message rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Message5</instagram:message>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.socialnetwork.edu/instagram#Notification1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.socialnetwork.edu/instagram#Notification1">
+        <rdf:type rdf:resource="http://www.socialnetwork.edu/instagram#Notification"/>
+        <instagram:belongs_to rdf:resource="http://www.socialnetwork.edu/instagram#User2"/>
+        <instagram:created_at rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2022-05-08T12:50:00</instagram:created_at>
+        <instagram:notification rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Notification1</instagram:notification>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.socialnetwork.edu/instagram#Notification2 -->
+
+    <owl:NamedIndividual rdf:about="http://www.socialnetwork.edu/instagram#Notification2">
+        <rdf:type rdf:resource="http://www.socialnetwork.edu/instagram#Notification"/>
+        <instagram:belongs_to rdf:resource="http://www.socialnetwork.edu/instagram#User4"/>
+        <instagram:created_at rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2022-05-20T09:20:00</instagram:created_at>
+        <instagram:notification rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Notification2</instagram:notification>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.socialnetwork.edu/instagram#Notification3 -->
+
+    <owl:NamedIndividual rdf:about="http://www.socialnetwork.edu/instagram#Notification3">
+        <rdf:type rdf:resource="http://www.socialnetwork.edu/instagram#Notification"/>
+        <instagram:belongs_to rdf:resource="http://www.socialnetwork.edu/instagram#User6"/>
+        <instagram:created_at rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2022-05-25T10:50:00</instagram:created_at>
+        <instagram:notification rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Notification3</instagram:notification>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.socialnetwork.edu/instagram#Notification4 -->
+
+    <owl:NamedIndividual rdf:about="http://www.socialnetwork.edu/instagram#Notification4">
+        <rdf:type rdf:resource="http://www.socialnetwork.edu/instagram#Notification"/>
+        <instagram:belongs_to rdf:resource="http://www.socialnetwork.edu/instagram#User7"/>
+        <instagram:created_at rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2022-05-30T18:50:00</instagram:created_at>
+        <instagram:notification rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Notification4</instagram:notification>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.socialnetwork.edu/instagram#Notification5 -->
+
+    <owl:NamedIndividual rdf:about="http://www.socialnetwork.edu/instagram#Notification5">
+        <rdf:type rdf:resource="http://www.socialnetwork.edu/instagram#Notification"/>
+        <instagram:belongs_to rdf:resource="http://www.socialnetwork.edu/instagram#User3"/>
+        <instagram:created_at rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2022-06-08T20:00:00</instagram:created_at>
+        <instagram:notification rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Notification5</instagram:notification>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.socialnetwork.edu/instagram#Post1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.socialnetwork.edu/instagram#Post1">
+        <rdf:type rdf:resource="http://www.socialnetwork.edu/instagram#Post"/>
+        <instagram:added_to rdf:resource="http://www.socialnetwork.edu/instagram#Collection3"/>
+        <instagram:created_at rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2022-06-05T12:50:00</instagram:created_at>
+        <instagram:media rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Post1</instagram:media>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.socialnetwork.edu/instagram#Post2 -->
+
+    <owl:NamedIndividual rdf:about="http://www.socialnetwork.edu/instagram#Post2">
+        <rdf:type rdf:resource="http://www.socialnetwork.edu/instagram#Post"/>
+        <instagram:created_at rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2022-05-12T17:00:00</instagram:created_at>
+        <instagram:media rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Post2</instagram:media>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.socialnetwork.edu/instagram#Post3 -->
+
+    <owl:NamedIndividual rdf:about="http://www.socialnetwork.edu/instagram#Post3">
+        <rdf:type rdf:resource="http://www.socialnetwork.edu/instagram#Post"/>
+        <instagram:created_at rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2022-05-16T17:00:00</instagram:created_at>
+        <instagram:media rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Post3</instagram:media>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.socialnetwork.edu/instagram#Post4 -->
+
+    <owl:NamedIndividual rdf:about="http://www.socialnetwork.edu/instagram#Post4">
+        <rdf:type rdf:resource="http://www.socialnetwork.edu/instagram#Post"/>
+        <instagram:added_to rdf:resource="http://www.socialnetwork.edu/instagram#Collection1"/>
+        <instagram:created_at rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2022-05-18T16:00:00</instagram:created_at>
+        <instagram:media rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Post4</instagram:media>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.socialnetwork.edu/instagram#Post5 -->
+
+    <owl:NamedIndividual rdf:about="http://www.socialnetwork.edu/instagram#Post5">
+        <rdf:type rdf:resource="http://www.socialnetwork.edu/instagram#Post"/>
+        <instagram:created_at rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2022-05-20T12:50:00</instagram:created_at>
+        <instagram:media rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Post5</instagram:media>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.socialnetwork.edu/instagram#Post6 -->
+
+    <owl:NamedIndividual rdf:about="http://www.socialnetwork.edu/instagram#Post6">
+        <rdf:type rdf:resource="http://www.socialnetwork.edu/instagram#Post"/>
+        <instagram:added_to rdf:resource="http://www.socialnetwork.edu/instagram#Collection3"/>
+        <instagram:created_at rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2022-05-22T10:50:00</instagram:created_at>
+        <instagram:media rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Post6</instagram:media>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.socialnetwork.edu/instagram#Post7 -->
+
+    <owl:NamedIndividual rdf:about="http://www.socialnetwork.edu/instagram#Post7">
+        <rdf:type rdf:resource="http://www.socialnetwork.edu/instagram#Post"/>
+        <instagram:added_to rdf:resource="http://www.socialnetwork.edu/instagram#Collection2"/>
+        <instagram:created_at rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2022-05-25T12:50:00</instagram:created_at>
+        <instagram:media rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Post7</instagram:media>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.socialnetwork.edu/instagram#Post8 -->
+
+    <owl:NamedIndividual rdf:about="http://www.socialnetwork.edu/instagram#Post8">
+        <rdf:type rdf:resource="http://www.socialnetwork.edu/instagram#Post"/>
+        <instagram:created_at rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2022-06-02T12:50:00</instagram:created_at>
+        <instagram:media rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Post8</instagram:media>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.socialnetwork.edu/instagram#Post9 -->
+
+    <owl:NamedIndividual rdf:about="http://www.socialnetwork.edu/instagram#Post9">
+        <rdf:type rdf:resource="http://www.socialnetwork.edu/instagram#Post"/>
+        <instagram:created_at rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2022-06-05T12:50:00</instagram:created_at>
+        <instagram:media rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Post9</instagram:media>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.socialnetwork.edu/instagram#Story1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.socialnetwork.edu/instagram#Story1">
+        <rdf:type rdf:resource="http://www.socialnetwork.edu/instagram#Story"/>
+        <instagram:created_at rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2022-05-10T11:11:00</instagram:created_at>
+        <instagram:media rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Story1</instagram:media>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.socialnetwork.edu/instagram#Story2 -->
+
+    <owl:NamedIndividual rdf:about="http://www.socialnetwork.edu/instagram#Story2">
+        <rdf:type rdf:resource="http://www.socialnetwork.edu/instagram#Story"/>
+        <instagram:created_at rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2022-05-16T11:11:00</instagram:created_at>
+        <instagram:media rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Story2</instagram:media>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.socialnetwork.edu/instagram#Story3 -->
+
+    <owl:NamedIndividual rdf:about="http://www.socialnetwork.edu/instagram#Story3">
+        <rdf:type rdf:resource="http://www.socialnetwork.edu/instagram#Story"/>
+        <instagram:created_at rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2022-05-20T10:11:00</instagram:created_at>
+        <instagram:media rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Story3</instagram:media>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.socialnetwork.edu/instagram#Story4 -->
+
+    <owl:NamedIndividual rdf:about="http://www.socialnetwork.edu/instagram#Story4">
+        <rdf:type rdf:resource="http://www.socialnetwork.edu/instagram#Story"/>
+        <instagram:created_at rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2022-05-26T15:11:00</instagram:created_at>
+        <instagram:media rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Story4</instagram:media>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.socialnetwork.edu/instagram#Story5 -->
+
+    <owl:NamedIndividual rdf:about="http://www.socialnetwork.edu/instagram#Story5">
+        <rdf:type rdf:resource="http://www.socialnetwork.edu/instagram#Story"/>
+        <instagram:created_at rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2022-05-29T11:11:00</instagram:created_at>
+        <instagram:media rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Story5</instagram:media>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.socialnetwork.edu/instagram#User1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.socialnetwork.edu/instagram#User1">
+        <rdf:type rdf:resource="http://www.socialnetwork.edu/instagram#InstagramAccount"/>
+        <instagram:commented rdf:resource="http://www.socialnetwork.edu/instagram#Post2"/>
+        <instagram:created rdf:resource="http://www.socialnetwork.edu/instagram#Post1"/>
+        <instagram:created rdf:resource="http://www.socialnetwork.edu/instagram#Post6"/>
+        <instagram:followed rdf:resource="http://www.socialnetwork.edu/instagram#User3"/>
+        <instagram:followed rdf:resource="http://www.socialnetwork.edu/instagram#User8"/>
+        <instagram:followed rdf:resource="http://www.socialnetwork.edu/instagram#User9"/>
+        <instagram:followed_by rdf:resource="http://www.socialnetwork.edu/instagram#User2"/>
+        <instagram:liked rdf:resource="http://www.socialnetwork.edu/instagram#Post2"/>
+        <instagram:liked rdf:resource="http://www.socialnetwork.edu/instagram#Post9"/>
+        <instagram:sent rdf:resource="http://www.socialnetwork.edu/instagram#Message1"/>
+        <instagram:birth_date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">1994-04-27T00:00:00</instagram:birth_date>
+        <instagram:created_at rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2022-05-01T08:30:00</instagram:created_at>
+        <instagram:email rdf:datatype="http://www.w3.org/2001/XMLSchema#string">haxhi.celaj@gmail.com</instagram:email>
+        <instagram:first_name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Haxhi</instagram:first_name>
+        <instagram:last_name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">celaj</instagram:last_name>
+        <instagram:profile_image rdf:datatype="http://www.w3.org/2001/XMLSchema#string">image1</instagram:profile_image>
+        <instagram:user_id rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</instagram:user_id>
+        <instagram:username rdf:datatype="http://www.w3.org/2001/XMLSchema#string">haxhicelaj</instagram:username>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.socialnetwork.edu/instagram#User2 -->
+
+    <owl:NamedIndividual rdf:about="http://www.socialnetwork.edu/instagram#User2">
+        <rdf:type rdf:resource="http://www.socialnetwork.edu/instagram#InstagramAccount"/>
+        <instagram:created rdf:resource="http://www.socialnetwork.edu/instagram#Story1"/>
+        <instagram:followed rdf:resource="http://www.socialnetwork.edu/instagram#User1"/>
+        <instagram:followed rdf:resource="http://www.socialnetwork.edu/instagram#User3"/>
+        <instagram:followed rdf:resource="http://www.socialnetwork.edu/instagram#User5"/>
+        <instagram:followed rdf:resource="http://www.socialnetwork.edu/instagram#User9"/>
+        <instagram:liked rdf:resource="http://www.socialnetwork.edu/instagram#Post1"/>
+        <instagram:liked rdf:resource="http://www.socialnetwork.edu/instagram#Post8"/>
+        <instagram:received rdf:resource="http://www.socialnetwork.edu/instagram#Notification1"/>
+        <instagram:sent rdf:resource="http://www.socialnetwork.edu/instagram#Message2"/>
+        <instagram:birth_date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">1999-07-07T00:00:00</instagram:birth_date>
+        <instagram:created_at rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2022-05-10T08:30:00</instagram:created_at>
+        <instagram:email rdf:datatype="http://www.w3.org/2001/XMLSchema#string">visar.buza7@gmail.com</instagram:email>
+        <instagram:first_name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Visar</instagram:first_name>
+        <instagram:last_name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Buza</instagram:last_name>
+        <instagram:profile_image rdf:datatype="http://www.w3.org/2001/XMLSchema#string">image2</instagram:profile_image>
+        <instagram:user_id rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</instagram:user_id>
+        <instagram:username rdf:datatype="http://www.w3.org/2001/XMLSchema#string">visarbuza</instagram:username>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.socialnetwork.edu/instagram#User3 -->
+
+    <owl:NamedIndividual rdf:about="http://www.socialnetwork.edu/instagram#User3">
+        <rdf:type rdf:resource="http://www.socialnetwork.edu/instagram#InstagramAccount"/>
+        <instagram:commented rdf:resource="http://www.socialnetwork.edu/instagram#Post8"/>
+        <instagram:created rdf:resource="http://www.socialnetwork.edu/instagram#Post2"/>
+        <instagram:created rdf:resource="http://www.socialnetwork.edu/instagram#Story3"/>
+        <instagram:followed rdf:resource="http://www.socialnetwork.edu/instagram#User4"/>
+        <instagram:followed rdf:resource="http://www.socialnetwork.edu/instagram#User7"/>
+        <instagram:liked rdf:resource="http://www.socialnetwork.edu/instagram#Post1"/>
+        <instagram:liked rdf:resource="http://www.socialnetwork.edu/instagram#Post3"/>
+        <instagram:liked rdf:resource="http://www.socialnetwork.edu/instagram#Post5"/>
+        <instagram:liked rdf:resource="http://www.socialnetwork.edu/instagram#Post8"/>
+        <instagram:received rdf:resource="http://www.socialnetwork.edu/instagram#Notification2"/>
+        <instagram:tagged rdf:resource="http://www.socialnetwork.edu/instagram#User4"/>
+        <instagram:birth_date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">1992-04-10T00:00:00</instagram:birth_date>
+        <instagram:created_at rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2022-05-08T08:30:00</instagram:created_at>
+        <instagram:email rdf:datatype="http://www.w3.org/2001/XMLSchema#string">email3</instagram:email>
+        <instagram:first_name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">first name 3</instagram:first_name>
+        <instagram:last_name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">last name 3</instagram:last_name>
+        <instagram:profile_image rdf:datatype="http://www.w3.org/2001/XMLSchema#string">image3</instagram:profile_image>
+        <instagram:user_id rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</instagram:user_id>
+        <instagram:username rdf:datatype="http://www.w3.org/2001/XMLSchema#string">username3</instagram:username>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.socialnetwork.edu/instagram#User4 -->
+
+    <owl:NamedIndividual rdf:about="http://www.socialnetwork.edu/instagram#User4">
+        <rdf:type rdf:resource="http://www.socialnetwork.edu/instagram#InstagramAccount"/>
+        <instagram:created rdf:resource="http://www.socialnetwork.edu/instagram#Post3"/>
+        <instagram:created rdf:resource="http://www.socialnetwork.edu/instagram#Story2"/>
+        <instagram:followed rdf:resource="http://www.socialnetwork.edu/instagram#User2"/>
+        <instagram:followed rdf:resource="http://www.socialnetwork.edu/instagram#User6"/>
+        <instagram:followed rdf:resource="http://www.socialnetwork.edu/instagram#User8"/>
+        <instagram:liked rdf:resource="http://www.socialnetwork.edu/instagram#Post4"/>
+        <instagram:liked rdf:resource="http://www.socialnetwork.edu/instagram#Post9"/>
+        <instagram:received rdf:resource="http://www.socialnetwork.edu/instagram#Notification3"/>
+        <instagram:birth_date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">1996-08-10T00:00:00</instagram:birth_date>
+        <instagram:created_at rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2022-05-11T08:30:00</instagram:created_at>
+        <instagram:email rdf:datatype="http://www.w3.org/2001/XMLSchema#string">email4</instagram:email>
+        <instagram:first_name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">first name 4</instagram:first_name>
+        <instagram:last_name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">last name 4</instagram:last_name>
+        <instagram:profile_image rdf:datatype="http://www.w3.org/2001/XMLSchema#string">image4</instagram:profile_image>
+        <instagram:user_id rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4</instagram:user_id>
+        <instagram:username rdf:datatype="http://www.w3.org/2001/XMLSchema#string">username4</instagram:username>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.socialnetwork.edu/instagram#User5 -->
+
+    <owl:NamedIndividual rdf:about="http://www.socialnetwork.edu/instagram#User5">
+        <rdf:type rdf:resource="http://www.socialnetwork.edu/instagram#InstagramAccount"/>
+        <instagram:commented rdf:resource="http://www.socialnetwork.edu/instagram#Post2"/>
+        <instagram:created rdf:resource="http://www.socialnetwork.edu/instagram#Story4"/>
+        <instagram:followed rdf:resource="http://www.socialnetwork.edu/instagram#User3"/>
+        <instagram:followed rdf:resource="http://www.socialnetwork.edu/instagram#User7"/>
+        <instagram:liked rdf:resource="http://www.socialnetwork.edu/instagram#Post2"/>
+        <instagram:liked rdf:resource="http://www.socialnetwork.edu/instagram#Post5"/>
+        <instagram:liked rdf:resource="http://www.socialnetwork.edu/instagram#Post8"/>
+        <instagram:birth_date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">1991-01-11T00:00:00</instagram:birth_date>
+        <instagram:created_at rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2022-05-14T08:30:00</instagram:created_at>
+        <instagram:email rdf:datatype="http://www.w3.org/2001/XMLSchema#string">email5</instagram:email>
+        <instagram:first_name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">first name 5</instagram:first_name>
+        <instagram:last_name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">last name 5</instagram:last_name>
+        <instagram:profile_image rdf:datatype="http://www.w3.org/2001/XMLSchema#string">image5</instagram:profile_image>
+        <instagram:user_id rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</instagram:user_id>
+        <instagram:username rdf:datatype="http://www.w3.org/2001/XMLSchema#string">username5</instagram:username>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.socialnetwork.edu/instagram#User6 -->
+
+    <owl:NamedIndividual rdf:about="http://www.socialnetwork.edu/instagram#User6">
+        <rdf:type rdf:resource="http://www.socialnetwork.edu/instagram#InstagramAccount"/>
+        <instagram:created rdf:resource="http://www.socialnetwork.edu/instagram#Post4"/>
+        <instagram:followed rdf:resource="http://www.socialnetwork.edu/instagram#User1"/>
+        <instagram:followed rdf:resource="http://www.socialnetwork.edu/instagram#User5"/>
+        <instagram:followed rdf:resource="http://www.socialnetwork.edu/instagram#User9"/>
+        <instagram:liked rdf:resource="http://www.socialnetwork.edu/instagram#Post1"/>
+        <instagram:liked rdf:resource="http://www.socialnetwork.edu/instagram#Post6"/>
+        <instagram:received rdf:resource="http://www.socialnetwork.edu/instagram#Notification4"/>
+        <instagram:sent rdf:resource="http://www.socialnetwork.edu/instagram#Message3"/>
+        <instagram:birth_date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">1996-08-10T00:00:00</instagram:birth_date>
+        <instagram:created_at rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2022-05-16T08:30:00</instagram:created_at>
+        <instagram:email rdf:datatype="http://www.w3.org/2001/XMLSchema#string">email6</instagram:email>
+        <instagram:first_name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">first name 6</instagram:first_name>
+        <instagram:last_name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">last name 6</instagram:last_name>
+        <instagram:profile_image rdf:datatype="http://www.w3.org/2001/XMLSchema#string">image6</instagram:profile_image>
+        <instagram:user_id rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">6</instagram:user_id>
+        <instagram:username rdf:datatype="http://www.w3.org/2001/XMLSchema#string">username6</instagram:username>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.socialnetwork.edu/instagram#User7 -->
+
+    <owl:NamedIndividual rdf:about="http://www.socialnetwork.edu/instagram#User7">
+        <rdf:type rdf:resource="http://www.socialnetwork.edu/instagram#InstagramAccount"/>
+        <instagram:commented rdf:resource="http://www.socialnetwork.edu/instagram#Post1"/>
+        <instagram:created rdf:resource="http://www.socialnetwork.edu/instagram#Post5"/>
+        <instagram:created rdf:resource="http://www.socialnetwork.edu/instagram#Post8"/>
+        <instagram:followed rdf:resource="http://www.socialnetwork.edu/instagram#User5"/>
+        <instagram:followed rdf:resource="http://www.socialnetwork.edu/instagram#User6"/>
+        <instagram:followed rdf:resource="http://www.socialnetwork.edu/instagram#User8"/>
+        <instagram:liked rdf:resource="http://www.socialnetwork.edu/instagram#Post1"/>
+        <instagram:liked rdf:resource="http://www.socialnetwork.edu/instagram#Post3"/>
+        <instagram:received rdf:resource="http://www.socialnetwork.edu/instagram#Notification5"/>
+        <instagram:sent rdf:resource="http://www.socialnetwork.edu/instagram#Message4"/>
+        <instagram:birth_date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">1990-01-10T00:00:00</instagram:birth_date>
+        <instagram:created_at rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2022-05-01T08:30:00</instagram:created_at>
+        <instagram:email rdf:datatype="http://www.w3.org/2001/XMLSchema#string">email7</instagram:email>
+        <instagram:first_name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">first name 7</instagram:first_name>
+        <instagram:last_name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">last name 7</instagram:last_name>
+        <instagram:profile_image rdf:datatype="http://www.w3.org/2001/XMLSchema#string">image7</instagram:profile_image>
+        <instagram:user_id rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">7</instagram:user_id>
+        <instagram:username rdf:datatype="http://www.w3.org/2001/XMLSchema#string">username7</instagram:username>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.socialnetwork.edu/instagram#User8 -->
+
+    <owl:NamedIndividual rdf:about="http://www.socialnetwork.edu/instagram#User8">
+        <rdf:type rdf:resource="http://www.socialnetwork.edu/instagram#InstagramAccount"/>
+        <instagram:created rdf:resource="http://www.socialnetwork.edu/instagram#Post9"/>
+        <instagram:created rdf:resource="http://www.socialnetwork.edu/instagram#Story5"/>
+        <instagram:followed rdf:resource="http://www.socialnetwork.edu/instagram#User3"/>
+        <instagram:followed rdf:resource="http://www.socialnetwork.edu/instagram#User9"/>
+        <instagram:liked rdf:resource="http://www.socialnetwork.edu/instagram#Post1"/>
+        <instagram:liked rdf:resource="http://www.socialnetwork.edu/instagram#Post4"/>
+        <instagram:liked rdf:resource="http://www.socialnetwork.edu/instagram#Post7"/>
+        <instagram:sent rdf:resource="http://www.socialnetwork.edu/instagram#Message5"/>
+        <instagram:birth_date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">1993-06-20T00:00:00</instagram:birth_date>
+        <instagram:created_at rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2022-05-26T08:30:00</instagram:created_at>
+        <instagram:email rdf:datatype="http://www.w3.org/2001/XMLSchema#string">email8</instagram:email>
+        <instagram:first_name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">first name 8</instagram:first_name>
+        <instagram:last_name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">last name 8</instagram:last_name>
+        <instagram:profile_image rdf:datatype="http://www.w3.org/2001/XMLSchema#string">image8</instagram:profile_image>
+        <instagram:user_id rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">8</instagram:user_id>
+        <instagram:username rdf:datatype="http://www.w3.org/2001/XMLSchema#string">username8</instagram:username>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.socialnetwork.edu/instagram#User9 -->
+
+    <owl:NamedIndividual rdf:about="http://www.socialnetwork.edu/instagram#User9">
+        <rdf:type rdf:resource="http://www.socialnetwork.edu/instagram#InstagramAccount"/>
+        <instagram:commented rdf:resource="http://www.socialnetwork.edu/instagram#Post1"/>
+        <instagram:created rdf:resource="http://www.socialnetwork.edu/instagram#Post7"/>
+        <instagram:followed rdf:resource="http://www.socialnetwork.edu/instagram#User1"/>
+        <instagram:followed rdf:resource="http://www.socialnetwork.edu/instagram#User3"/>
+        <instagram:followed rdf:resource="http://www.socialnetwork.edu/instagram#User4"/>
+        <instagram:followed rdf:resource="http://www.socialnetwork.edu/instagram#User6"/>
+        <instagram:liked rdf:resource="http://www.socialnetwork.edu/instagram#Post1"/>
+        <instagram:liked rdf:resource="http://www.socialnetwork.edu/instagram#Post6"/>
+        <instagram:birth_date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">1992-06-16T00:00:00</instagram:birth_date>
+        <instagram:created_at rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2022-05-30T08:30:00</instagram:created_at>
+        <instagram:email rdf:datatype="http://www.w3.org/2001/XMLSchema#string">email9</instagram:email>
+        <instagram:first_name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">first name 9</instagram:first_name>
+        <instagram:last_name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">last name 9</instagram:last_name>
+        <instagram:profile_image rdf:datatype="http://www.w3.org/2001/XMLSchema#string">image9</instagram:profile_image>
+        <instagram:user_id rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">9</instagram:user_id>
+        <instagram:username rdf:datatype="http://www.w3.org/2001/XMLSchema#string">username9</instagram:username>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.socialnetwork.edu/instagram#Collection"/>
+            <rdf:Description rdf:about="http://www.socialnetwork.edu/instagram#Comment"/>
+            <rdf:Description rdf:about="http://www.socialnetwork.edu/instagram#InstagramAccount"/>
+            <rdf:Description rdf:about="http://www.socialnetwork.edu/instagram#Message"/>
+            <rdf:Description rdf:about="http://www.socialnetwork.edu/instagram#Notification"/>
+            <rdf:Description rdf:about="http://www.socialnetwork.edu/instagram#Post"/>
+            <rdf:Description rdf:about="http://www.socialnetwork.edu/instagram#Story"/>
+        </owl:members>
+    </rdf:Description>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Rules
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description rdf:about="http://www.www.socialnetwork.edu/instagram#user">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.www.socialnetwork.edu/instagram#post">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description>
+        <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</swrla:isRuleEnabled>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></rdfs:comment>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Q1</rdfs:label>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                        <swrl:classPredicate rdf:resource="http://www.socialnetwork.edu/instagram#InstagramAccount"/>
+                        <swrl:argument1 rdf:resource="http://www.www.socialnetwork.edu/instagram#user"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                <swrl:propertyPredicate rdf:resource="http://www.socialnetwork.edu/instagram#created"/>
+                                <swrl:argument1 rdf:resource="http://www.www.socialnetwork.edu/instagram#user"/>
+                                <swrl:argument2 rdf:resource="http://www.www.socialnetwork.edu/instagram#post"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://www.socialnetwork.edu/instagram#created_by"/>
+                        <swrl:argument1 rdf:resource="http://www.www.socialnetwork.edu/instagram#post"/>
+                        <swrl:argument2 rdf:resource="http://www.www.socialnetwork.edu/instagram#user"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi -->
+

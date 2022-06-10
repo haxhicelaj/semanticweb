@@ -1,0 +1,24 @@
+InstagramAccount(?user) ^ created(?user, ?post) -> created_by(?post, ?user);
+InstagramAccount(?user) ^ liked(?user, ?post) -> liked_by(?post, ?user);
+InstagramAccount(?user) ^ followed(?user, ?followed) -> followed_by(?followed, ?user);
+
+created(User1, ?post) -> sqwrl:select(?post);
+liked(User1, ?post) -> sqwrl:select(?post);
+followed(User1, ?user) -> sqwrl:select(?user);
+
+
+======================================================================================
+
+UserAccount(?user) ^ tweeted(?user, ?tweet) -> tweeted_by(?tweet, ?user);
+UserAccount(?user) ^ liked(?user, ?tweet) -> liked_by(?tweet, ?user);
+UserAccount(?user) ^ followed(?user, ?followed) -> followed_by(?followed, ?user);
+UserAccount(?user) ^ retweeted(?user, ?tweet) -> retweeted_by(?tweet, ?user);
+UserAccount(?user) ^ bookmarked(?user, ?tweet) -> bookmarked_by(?tweet, ?user); 
+
+tweeted(User1, ?tweet) -> sqwrl:select(?tweet);
+liked(User1, ?tweet) -> sqwrl:select(?tweet);
+followed(User1, ?followed) -> sqwrl:select(?user);
+retweeted(User1, ?tweet) -> sqwrl:select(?tweet);
+bookmarked(User1, ?tweet) -> sqwrl:select(?tweet); 
+
+===========================================================================

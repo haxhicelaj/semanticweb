@@ -1,0 +1,95 @@
+
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX instagram: <http://www.socialnetwork.edu/instagram#>
+SELECT ?users 
+WHERE {
+	?person instagram:username ?name.
+	?person instagram:followed_by ?users. 
+	FILTER(?name = "haxhicelaj"^^xsd:string)
+}
+--------------------------------------------------------
+
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX instagram: <http://www.socialnetwork.edu/instagram#>
+SELECT ?users 
+WHERE {
+	?person instagram:username ?name.
+	?person instagram:followed ?users. 
+	FILTER(?name = "haxhicelaj"^^xsd:string)
+}
+--------------------------------------------------------
+
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX instagram: <http://www.socialnetwork.edu/instagram#>
+SELECT ?posts
+WHERE {
+	?person instagram:username ?name.
+	?person instagram:liked ?posts
+	FILTER(?name = "haxhicelaj"^^xsd:string)
+}
+LIMIT 1
+----------------------------------------------------------
+
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX instagram: <http://www.socialnetwork.edu/instagram#>
+SELECT ?posts
+WHERE {
+	?person instagram:username ?name.
+	?person instagram:commented ?posts
+	FILTER(?name = "haxhicelaj"^^xsd:string)
+}
+---------------------------------------------------------
+
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX instagram: <http://www.socialnetwork.edu/instagram#>
+SELECT ?username (COUNT(*) as ?total)
+WHERE {
+	?person instagram:followed_by ?users.
+	?person instagram:username ?username.
+}
+GROUP BY ?username
+ORDER BY DESC(?total)
+-----------------------------------------------------------
+
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX instagram: <http://www.socialnetwork.edu/instagram#>
+SELECT ?username (COUNT(*) as ?total)
+WHERE {
+	?person instagram:followed ?users.
+	?person instagram:username ?username.
+}
+GROUP BY ?username
+ORDER BY DESC(?total)
+-----------------------------------------------------------
+
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX instagram: <http://www.socialnetwork.edu/instagram#>
+SELECT ?username
+WHERE {
+	?person instagram:username ?username.
+              OPTIONAL {
+	?person instagram:followed_by ?users.
+              }
+              FILTER(!BOUND(?users))
+}
